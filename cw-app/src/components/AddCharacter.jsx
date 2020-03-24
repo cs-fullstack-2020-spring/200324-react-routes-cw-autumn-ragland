@@ -3,14 +3,15 @@ import React, { Component } from 'react';
 class AddCharacter extends Component {
     constructor(props) {
         super(props);
+        // set initial state
         this.state = {
-            name: "",
-            birth_year: "",
-            gender: "",
-            characterList: []
+            name: "", // form value
+            birth_year: "", // form value
+            gender: "", // form value
+            characterList: [] // array to hold form submission
         }
     }
-
+    // event handler to conditionally update state
     handleChange = (event) => {
         if (event.target.name === "name") {
             this.setState({ name: event.target.value })
@@ -20,23 +21,27 @@ class AddCharacter extends Component {
             this.setState({ gender: event.target.value })
         }
     }
-
+    // event handler for form submission
     handleSubmission = (event) => {
-        event.preventDefault();
-        this.props.addNewCharacter(this.state)
+        event.preventDefault(); // prevent page from reloading
+        // call back function from parent
+        this.props.addNewCharacter(this.state) // pass state (form fields and submission array)
+        // clear form fields
         this.setState({
             name: "",
             birth_year: "",
             gender: "",
         })
+        // add form field values to submission array
         this.state.characterList.push({
             name: this.state.name,
             birth_year: this.state.birth_year,
             gender: this.state.gender
         });
-        this.setState({characterList : this.state.characterList});
+        // set state globally
+        this.setState({ characterList: this.state.characterList });
     }
-
+    // display form for adding character and form submissions
     render() {
         return (
             <div>
@@ -72,7 +77,7 @@ class AddCharacter extends Component {
                 <div>
                     {
                         this.state.characterList.map(character => {
-                            return(
+                            return (
                                 <div>
                                     <p>Name : {character.name}</p>
                                     <p>Birth Year : {character.birth_year}</p>

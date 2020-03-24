@@ -41,3 +41,8 @@
   padding: 1%;
   font-size: 40px;
 }
+
+.formGroup{
+  display: block;
+  padding: 1%;
+}

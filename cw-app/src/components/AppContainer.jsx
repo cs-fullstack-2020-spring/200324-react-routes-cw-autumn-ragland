@@ -6,19 +6,20 @@ import AddCharacter from './AddCharacter';
 class AppContainer extends Component {
     constructor(props) {
         super(props);
+        // set initial state
         this.state = {
-            newCharacter: {}
+            newCharacter: {} // new character object to hold form submission from child
         }
     }
-
+    // method to update the state of newCharacter - called from child component
     addNewCharacter = (newCharacter) => {
         this.setState({ newCharacter: newCharacter })
     }
-
+    // display title and links to home, characters, and add character form
     render() {
         return (
             <div>
-                <h1>Check</h1>
+                <h1>Star Wars Characters</h1>
                 <Router>
                     <Link className="routeLink" to="/">Home</Link>
                     <Link className="routeLink" to="/characters">Star Wars Characters</Link>
