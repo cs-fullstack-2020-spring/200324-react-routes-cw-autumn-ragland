@@ -19,8 +19,19 @@ class StarsWarsCharacters extends Component {
         this.addNewCharacter();
     }
     addNewCharacter = () => {
-        if (this.props.newCharacter) {
-            this.state.characterList.unshift(this.props.newCharacter);
+        if (this.props.newCharacter.name) {
+            this.state.characterList.unshift({
+                name: this.props.newCharacter.name,
+                birth_year: this.props.newCharacter.birth_year,
+                gender: this.props.newCharacter.gender
+            });
+            console.table(
+                {
+                    name: this.props.newCharacter.name,
+                    birth_year: this.props.newCharacter.birth_year,
+                    gender: this.props.newCharacter.gender
+                }
+            )
             console.log(this.state.characterList)
             this.setState({ characterList: this.state.characterList })
         }

@@ -7,12 +7,12 @@ class AppContainer extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            newCharacter : {}
+            newCharacter: {}
         }
     }
 
     addNewCharacter = (newCharacter) => {
-        this.setState({newCharacter : newCharacter})
+        this.setState({ newCharacter: newCharacter })
     }
 
     render() {
@@ -20,11 +20,11 @@ class AppContainer extends Component {
             <div>
                 <h1>Check</h1>
                 <Router>
-                    <Link to="/">Home</Link>
-                    <Link to="/characters">Star Wars Characters</Link>
-                    <Link to="/add_character">Add Character</Link>
-                    <Route path="/characters"><StarsWarsCharacters newCharacter={this.state.newCharacter}/></Route>
-                    <Route path="/add_character"><AddCharacter addNewCharacter = {this.addNewCharacter}/></Route>
+                    <Link className="routeLink" to="/">Home</Link>
+                    <Link className="routeLink" to="/characters">Star Wars Characters</Link>
+                    <Link className="routeLink" to="/add_character">Add Character</Link>
+                    <Route path="/characters"><StarsWarsCharacters newCharacter={this.state.newCharacter} /></Route>
+                    <Route path="/add_character"><AddCharacter addNewCharacter={this.addNewCharacter} /></Route>
                 </Router>
             </div>
         )
